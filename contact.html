@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+
+    <title> Jeboy Llorente Personal Portfolio</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<style>
+				nav {
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 70px;
+	padding: 0 1.5em;
+	background-color: #2f3542;
+	font-family: 'Montserrat', sans-serif;
+}
+nav .logo {
+	font-size: 1.25em;
+	line-height: 70px;
+	color: #fff;
+}
+nav .nav-menu {
+	position: absolute;
+	right: 1.5em;
+	top: 0;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+nav .nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+nav .nav-item {
+	display: inline-block;
+	position:relative;
+}
+nav .nav-item > a {
+	display: inline-block;
+	padding: 0 1.5em;
+	line-height: 70px;
+	color: #fff;
+	text-decoration: none;
+}
+nav .dropdown {
+	position: relative;
+}
+nav .dropdown a::after {
+	content: '';
+	display: inline-block;
+	margin-left: .5em;
+	vertical-align: middle;
+	border-top: .3em solid #fff;
+	border-right: .3em solid transparent;
+	border-left: .3em solid transparent;
+}
+nav .dropdown.show a::after {
+	transform: rotate(180deg);
+}
+nav .dropdown-menu {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 100%;
+	padding: .5em 0;
+	margin-top: -.5em;
+	border: 1px solid rgba(0,0,0,.3);
+	border-radius: .5em;
+	background-color: #fff;
+}
+nav .dropdown.show .dropdown-menu {
+	display: block;
+}
+nav .dropdown-item {
+	display: block;
+	padding: 0 1.5em;
+	font-size: .875em;
+	color: #000;
+	line-height: 3;
+	text-decoration: none;
+}
+nav .btn-hamburger {
+	display: none;
+	position: absolute;
+	right: 1.5em;
+	top: 50%;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	transform: translateY(-50%);
+}
+nav .btn-hamburger span {
+	display: block;
+	width: 30px;
+	height: 4px;
+	background-color: #fff;
+	margin: 6px;
+	border-radius: 2px;
+	transition: .3s ease-in-out;
+}
+nav .btn-hamburger span:nth-child(4),
+nav .btn-hamburger span:nth-child(5) {
+	position: absolute;
+	top: 10px;
+	opacity: .5;
+}
+nav .btn-hamburger span:nth-child(4) {
+	transform: rotate(45deg) scale(0);
+}
+nav .btn-hamburger span:nth-child(5) {
+	transform: rotate(-45deg) scale(0);
+}
+nav.opened .btn-hamburger span:nth-child(4) {
+	opacity: 1;
+	transform: rotate(45deg) scale(1);
+}
+nav.opened .btn-hamburger span:nth-child(5) {
+	opacity: 1;
+	transform: rotate(-45deg) scale(1);
+}
+nav.opened .btn-hamburger span:nth-child(1),
+nav.opened .btn-hamburger span:nth-child(2),
+nav.opened .btn-hamburger span:nth-child(3) {
+	opacity: 0;
+}
+@media screen and (max-width: 768px) {
+	nav .nav-menu {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 70px;
+		bottom: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		background-color: #363d4e;
+		transition: bottom .5s ease-in-out;
+		overflow: hidden;
+	}
+	nav.opened .nav-menu {
+		bottom: 0;
+	}
+	nav .nav-item > a {
+		display: block;
+	}
+	nav .dropdown-menu {
+		position: relative;
+		top: 0;
+		margin: 0 1.5em;
+	}
+	nav .btn-hamburger {
+		display: block;
+	}
+}
+
+</style>
+
+<body>
+    
+    <div id="wrap">
+	<nav>
+		<div class="logo">
+			JEBOY<strong>&nbspPORTFOLIO</strong>
+		</div>
+		<button type="button" class="btn-hamburger" data-action="nav-toggle">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+		<ul class="nav-menu">
+			<li class="nav-item"><a href="index.html">Home</a></li>
+			<li class="nav-item dropdown">
+				<a href="#" data-action="dropdown-toggle">About</a>
+			<div class="dropdown-menu">
+					<a class="dropdown-item" href="about.html">Myself</a>
+					<a class="dropdown-item" href="family.html">Family</a>
+					
+				</div>
+				</li>
+							
+			
+						<li class="nav-item dropdown">
+				<a href="#" data-action="dropdown-toggle">Portfolio</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="portfolio.html">Activity 1</a>
+					<a class="dropdown-item" href="#">Activity 2</a>
+					<a class="dropdown-item" href="#">Activity 3</a>
+					<a class="dropdown-item" href="#">Activity 4</a>
+					<a class="dropdown-item" href="#">Activity 5</a>
+					<a class="dropdown-item" href="#">Activity 6</a>
+					<a class="dropdown-item" href="#">Activity 7</a>
+					<a class="dropdown-item" href="#">Activity 8</a>
+					<a class="dropdown-item" href="#">Activity 9</a>
+				</div>
+			</li>
+								<li class="nav-item dropdown">
+				<a href="#" data-action="dropdown-toggle">Education</a>
+			<div class="dropdown-menu">
+					<a class="dropdown-item" href="elementary.html">Elementary</a>
+					<a class="dropdown-item" href="highschool.html">Highschool</a>
+					<a class="dropdown-item" href="college.html">College</a>
+					
+				</div>
+				</li>
+					<li class="nav-item"><a href="contact.html">Contact</a></li>
+				
+			
+		</ul>
+		
+	</nav>
+    
+            <section id="contact" class="contact section section-bg">
+            <div class="section__header container">
+                <span class="section__subtitle">Let's Talk</span>
+                <h2 class="section__title">Feel Free to Contact Me</h2>
+            </div>
+            <div class="d-grid contact__wrapper container">
+                <form action="" class="contact__form">
+                    <div class="form__group">
+                        <label for="" class="form__label">Name</label>
+                        <input type="text" class="form__input" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="" class="form__label">Email</label>
+                        <input type="email" class="form__input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="" class="form__label">Message</label>
+                        <textarea class="form__input form__textarea"
+                            placeholder="Tell me about your project"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary">
+                        <i class="ri-send-plane-line"></i>Send Message
+                    </button>
+                </form>
+                <div class="d-grid contact__content">
+                    <div class="contact__info">
+                        <div class="contact__icon">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <div class="contact__info-wrapper">
+                            <h3 class="contact__title">Facebook:</h3>
+                            <p class="contact__description">Jeboy Llorente</p>
+                        </div>
+                    </div>
+
+                    <div class="contact__info">
+                        <div class="contact__icon">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                        <div class="contact__info-wrapper">
+                            <h3 class="contact__title">Email:</h3>
+                            <p class="contact__description">aigeboyllorente@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact__info">
+                        <div class="contact__icon">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <div class="contact__info-wrapper">
+                            <h3 class="contact__title">Location:</h3>
+                            <p class="contact__description">Liangao, Surigao, Philippines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+   <!--===================== Footer =====================-->
+    <footer class="footer">
+        <div class="d-grid footer__wrapper container">
+            <div class="footer__content">
+                <h4 class="footer__name">Jeboy Llorente Portfolio</h4>
+                <ul class="footer__list">
+                    <li class="footer__item">
+                        <a href="index.html" class="footer__link">Home</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="about.html" class="footer__link">About</a>
+                    </li>
+
+                    
+                    <li class="footer__item">
+                        <a href="portfolio.html" class="footer__link">Portfolio</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="education.html" class="footer__link">Education</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="contact.html" class="footer__link">Contact</a>
+                    </li>
+                </ul>
+                <ul class="social__list">
+                    <li class="social__item">
+                        <a href="https://www.facebook.com/Jbllorente30?mibextid=kFxxJD" class="social__link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="javascript:void(0)" class="social__link">
+                            <i class="ri-twitter-line"></i>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://instagram.com/qood1kng.jeboy?igshid=YTQwZjQ0NmI0OA%3D%3D&utm_source=qr" class="social__link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__copyright container">
+            <p>&copy; Copyright 2023 Designed by Jeboy Llorente.</p>
+        </div>
+    </footer>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
